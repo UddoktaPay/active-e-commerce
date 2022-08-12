@@ -123,8 +123,7 @@ class UddoktapayController extends Controller
                 }
             }
         }
-        flash(translate('Payment Success'))->success();
-    	return redirect()->route('cart');
+    	return redirect()->route('order_confirmed');
     }
 
     public function cancel(Request $request){
