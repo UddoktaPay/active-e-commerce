@@ -170,6 +170,15 @@ class CustomerPackageController extends Controller
         flash(translate('Package purchasing successful'))->success();
         return redirect()->route('dashboard');
     }
+    
+    public function purchase_payment_done_uddoktapay($payment_data, $user_id, $payment)
+    {
+        $user = User::findOrFail($user_id);
+        $user->customer_package_id = $payment_data['customer_package_id'];
+        $customer_package = CustomerPackage::findOrFail($payment_data['customer_package_id']);
+        $user->remaining_uploads += $customer_package->product_upload;
+        $user->save();
+    }
 
     public function purchase_package_offline(Request $request)
     {

@@ -89,21 +89,6 @@ class CheckoutController extends Controller
         Session::put('combined_order_id', $combined_order_id);
         return redirect()->route('order_confirmed');
     }
-    
-    //redirects to this method after a successfull checkout
-    public function checkout_done_uddoktapay($combined_order_id, $payment)
-    {
-        $combined_order = CombinedOrder::findOrFail($combined_order_id);
-
-        foreach ($combined_order->orders as $key => $order) {
-            $order = Order::findOrFail($order->id);
-            $order->payment_status = 'paid';
-            $order->payment_details = $payment;
-            $order->save();
-
-            calculateCommissionAffilationClubPoint($order);
-        }
-    }
 
     public function get_shipping_info(Request $request)
     {

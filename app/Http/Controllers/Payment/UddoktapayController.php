@@ -83,7 +83,7 @@ class UddoktapayController extends Controller
         if(isset($data['status']) && $data['status'] === 'COMPLETED')
         {
             if ('cart_payment' == $data['metadata']['payment_type']) {
-                return (new CheckoutController)->checkout_done_uddoktapay($data['metadata']['combined_order_id'], json_encode($request->all()));
+                return (new CheckoutController)->checkout_done($data['metadata']['combined_order_id'], json_encode($request->all()));
             }
     
             if ('wallet_payment' == $data['metadata']['payment_type']) {
@@ -108,22 +108,21 @@ class UddoktapayController extends Controller
             if($result['status'] === 'COMPLETED')
             {
                 if ($result['metadata']['payment_type'] == 'cart_payment') {
-                return (new CheckoutController)->checkout_done($result['metadata']['combined_order_id'], json_encode($request->all()));
+                return (new CheckoutController)->checkout_done(Session::get('combined_order_id'), json_encode($request->all()));
                 }
         
                 if ($result['metadata']['payment_type'] == 'wallet_payment') {
-                    return (new WalletController)->wallet_payment_done(json_decode($result['metadata']['payment_data']), json_encode($request->all()));
+                    return (new WalletController)->wallet_payment_done(Session::get('payment_data'), json_encode($request->all()));
                 }
         
                 if ($result['metadata']['payment_type'] == 'customer_package_payment') {
-                    return (new CustomerPackageController)->purchase_payment_done(json_decode($result['metadata']['payment_data']), json_encode($request->all()));
+                    return (new CustomerPackageController)->purchase_payment_done(Session::get('payment_data'), json_encode($request->all()));
                 }
                 if($result['metadata']['payment_type'] == 'seller_package_payment') {
-                    return (new SellerPackageController)->purchase_payment_done(json_decode($result['metadata']['payment_data']), json_encode($request->all()));
+                    return (new SellerPackageController)->purchase_payment_done(Session::get('payment_data'), json_encode($request->all()));
                 }
             }
         }
-    	return redirect()->route('order_confirmed');
     }
 
     public function cancel(Request $request){
