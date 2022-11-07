@@ -6,7 +6,7 @@
 
 ```bash
 //Uddoktapay Start
-Route::controller(App\Http\Controllers\Payment\UddoktapayController\UddoktapayController::class)->group(function () {
+Route::controller(App\Http\Controllers\Payment\UddoktapayController::class)->group(function () {
     Route::any('/uddoktapay/success','success')->name('uddoktapay.success');
     Route::any('/uddoktapay/cancel','cancel')->name('uddoktapay.cancel');
     Route::any('/uddoktapay/webhook','webhook')->name('uddoktapay.webhook');
