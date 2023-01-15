@@ -111,11 +111,11 @@
                           <div class="col-md-8">
                               <div class="mb-3">
                                   <select class="form-control selectpicker" data-minimum-results-for-search="Infinity" name="payment_option" data-live-search="true">
+                                    @if (get_setting('uddoktapay_payment') == 1)
+                                        <option value="uddoktapay">{{ translate('bKash/Rocket/Nagad/Upay')}}</option>
+                                    @endif
                                     @if (get_setting('paypal_payment') == 1)
                                         <option value="paypal">{{ translate('Paypal')}}</option>
-                                    @endif
-                                    @if (get_setting('uddoktapay_payment') == 1)
-                                        <option value="uddoktapay">{{ translate('UddoktaPay')}}</option>
                                     @endif
                                     @if (get_setting('stripe_payment') == 1)
                                         <option value="stripe">{{ translate('Stripe')}}</option>
@@ -176,6 +176,9 @@
                                     @if(get_setting('authorizenet') == 1)
                                         <option value="authorizenet">{{ translate('Authorize Net')}}</option>
                                     @endif
+                                    @if (addon_is_activated('paytm') && get_setting('myfatoorah') == 1)
+											<option value="myfatoorah">{{translate('MyFatoorah')}}</option>
+									@endif
                                   </select>
                               </div>
                           </div>

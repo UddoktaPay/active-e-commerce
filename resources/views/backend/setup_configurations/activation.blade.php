@@ -173,7 +173,7 @@
                     <span class="slider round"></span>
                 </label>
                 <div class="alert" style="color: #004085;background-color: #cce5ff;border-color: #b8daff;margin-bottom:0;margin-top:10px;">
-                    You need to configure SMTP correctly to enable this feature. <a href="{{ route('smtp_settings.index') }}">Configure Now</a>
+                    {{ translate('You need to configure SMTP correctly to enable this feature.') }} <a href="{{ route('smtp_settings.index') }}">{{ translate('Configure Now') }}</a>
                 </div>
             </div>
         </div>
@@ -225,7 +225,7 @@
 
 <h4 class="text-center text-muted mt-4">{{translate('Payment Related')}}</h4>
 <div class="row">
-        <div class="col-lg-4">
+    <div class="col-lg-4">
         <div class="card">
             <div class="card-header text-center bord-btm">
                 <h3 class="mb-0 h6 text-center">{{translate('UddoktaPay Payment Activation')}}</h3>
@@ -234,7 +234,7 @@
                 <div class="clearfix">
                     <img class="float-left" src="{{ static_asset('assets/img/cards/uddoktapay.png') }}" height="30">
                     <label class="aiz-switch aiz-switch-success mb-0 float-right">
-                        <input type="checkbox" onchange="updateSettings(this, 'uddoktapay_payment')" <?php if(get_setting('uddoktapay_payment') == 1) echo "checked";?>>
+                        <input type="checkbox" onchange="updateSettings(this, 'uddoktapay_payment')" <?php if (get_setting('uddoktapay_payment') == 1) echo "checked"; ?>>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -244,6 +244,8 @@
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header text-center bord-btm">
@@ -277,7 +279,7 @@
                     </label>
                 </div>
                 <div class="alert" style="color: #004085;background-color: #cce5ff;border-color: #b8daff;margin-bottom:0;margin-top:10px;">
-                    You need to configure Stripe correctly to enable this feature. <a href="{{ route('payment_method.index') }}">Configure Now</a>
+                    {{ translate('You need to configure Stripe correctly to enable this feature.') }} <a href="{{ route('payment_method.index') }}">{{ translate('Configure Now') }}</a>
                 </div>
             </div>
         </div>
@@ -296,7 +298,7 @@
                     </label>
                 </div>
                 <div class="alert" style="color: #004085;background-color: #cce5ff;border-color: #b8daff;margin-bottom:0;margin-top:10px;">
-                    You need to configure Mercadopago correctly to enable this feature. <a href="{{ route('payment_method.index') }}">Configure Now</a>
+                    {{ translate('You need to configure Mercadopago correctly to enable this feature.') }} <a href="{{ route('payment_method.index') }}">{{ translate('Configure Now') }}</a>
                 </div>
             </div>
         </div>
@@ -317,7 +319,7 @@
                     </label>
                 </div>
                 <div class="alert" style="color: #004085;background-color: #cce5ff;border-color: #b8daff;margin-bottom:0;margin-top:10px;">
-                    You need to configure SSlCommerz correctly to enable this feature. <a href="{{ route('payment_method.index') }}">Configure Now</a>
+                    {{ translate('You need to configure SSlCommerz correctly to enable this feature.') }} <a href="{{ route('payment_method.index') }}">{{ translate('Configure Now') }}</a>
                 </div>
             </div>
         </div>
@@ -418,7 +420,7 @@
                     </label>
                 </div>
                 <div class="alert" style="color: #004085;background-color: #cce5ff;border-color: #b8daff;margin-bottom:0;margin-top:10px;">
-                    {{ translate('You need to configure VoguePay correctly to enable this feature') }}. <a href="{{ route('payment_method.index') }}">{{ translate('Configure Now') }}</a>
+                    {{ translate('You need to configure Payhere correctly to enable this feature') }}. <a href="{{ route('payment_method.index') }}">{{ translate('Configure Now') }}</a>
                 </div>
             </div>
         </div>

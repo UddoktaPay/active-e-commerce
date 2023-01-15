@@ -28,6 +28,7 @@ class VerifyCsrfToken extends Middleware
          '/iyzico*',
          '/payfast*',
          '/bkash*',
+         'api/v2/bkash*',
          '/aamarpay*',
          '/mock_payments',
          '/lnmo*'
