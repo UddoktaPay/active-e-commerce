@@ -232,7 +232,7 @@
             </div>
             <div class="card-body">
                 <div class="clearfix">
-                    <img class="float-left" src="{{ static_asset('assets/img/cards/uddoktapay.png') }}" height="30">
+                    <img class="float-left" src="{{ static_asset('assets/img/cards/uddoktapay_logo.png') }}" height="30">
                     <label class="aiz-switch aiz-switch-success mb-0 float-right">
                         <input type="checkbox" onchange="updateSettings(this, 'uddoktapay_payment')" <?php if (get_setting('uddoktapay_payment') == 1) echo "checked"; ?>>
                         <span class="slider round"></span>
