@@ -4,7 +4,6 @@ Note: Required Active E-Commerce at Lest 6.4.0
 
 1. Just Upload these files on your project & replace with existing files.
 
-
 # Want to Install via Addon?
 Download UddoktaPay Addon from link bellow and Upload it on Active E Commerce Addon Section. Use UddoktaPay as License Code.
 
